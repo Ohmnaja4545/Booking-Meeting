@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตารางจองห้องประชุม</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(to right, #5a5aa1, #3d3e98);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .calendar-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      border: 3px solid #185795;
+      width: 100%;
+      max-width: 1300px;
+      box-sizing: border-box;
+    }
+
+    .calendar-container h1 {
+      text-align: center;
+      font-weight: 500;
+      font-size: 36px;
+      margin-bottom: 25px;
+      color: #000000;
+    }
+
+    .calendar-container .btn-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 25px auto;
+      background-color: #d50000;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .calendar-container .btn-link:hover {
+      background-color: #a60000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 750px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .calendar-container {
+        padding: 20px;
+      }
+
+      .calendar-container h1 {
+        font-size: 26px;
+      }
+
+      .calendar-container .btn-link {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      iframe {
+        height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+    <h1>ตารางจองห้องประชุม</h1>
+    <a class="btn-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfInsBPRN87bYCaefpEbd13GPaMGxUtKeCrn1lth7wqdzv-ow/viewform?usp=dialog" target="_blank">
+      📝 ลงเวลาที่นี่ / ยกเลิกจอง
+    </a>
+   <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FBangkok&showTz=0&src=ZTI5YTU1NmZhNzcwZGU1NWRiZDVhZjQwNDNhNjg4MDNlOTAxZGNjZmYxYzViMTNkMmZjMjUzZWYyOTI4Y2U3N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23f4511e" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+</body>
+</html>
