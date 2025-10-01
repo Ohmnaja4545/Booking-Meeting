@@ -1,107 +1,147 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ตารางจองห้องประชุม</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Kanit', sans-serif;
-      background: linear-gradient(to right, #5a5aa1, #3d3e98);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 40px 20px;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ตารางจองห้องประชุม</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(to right, #5a5aa1, #3d3e98);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
 
-    .calendar-container {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      border: 3px solid #185795;
-      width: 100%;
-      max-width: 1300px;
-      box-sizing: border-box;
-    }
+        .calendar-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            border: 3px solid #185795;
+            width: 100%;
+            max-width: 1300px;
+            box-sizing: border-box;
+        }
 
-    .calendar-container h1 {
-      text-align: center;
-      font-weight: 500;
-      font-size: 36px;
-      margin-bottom: 25px;
-      color: #000000;
-    }
-    .calendar-container p {
-      text-align: center;
-      font-weight: 500;
-      font-size: 18px;
-      margin-bottom: 10px;
-      margin-top: 5px;
-      color: #000000;
-    }
+        .calendar-container h1 {
+            text-align: center;
+            font-weight: 500;
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: #000000;
+        }
 
-    .calendar-container .btn-link {
-      display: block;
-      width: fit-content;
-      margin: 0 auto 25px auto;
-      background-color: #2600ff;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
+        .calendar-container p {
+            text-align: center;
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            color: #000000;
+        }
 
-    .calendar-container .btn-link:hover {
-      background-color: #5755fc;
-    }
+        /* ปรับ container ปุ่มให้เป็น flex อยู่ในบรรทัดเดียว */
+        .calendar-container .btn-bar {
+            display: flex;
+            justify-content: end;
+            margin-bottom: 25px;
+        }
 
-    iframe {
-      width: 100%;
-      height: 750px;
-      border: none;
-      border-radius: 12px;
-    }
+        .calendar-container .btn-link {
+            background-color: #2600ff;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-    @media screen and (max-width: 768px) {
-      .calendar-container {
-        padding: 20px;
-      }
+        .calendar-container .btn-refresh {
+            background-color: #2c235d;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
 
-      .calendar-container h1 {
-        font-size: 26px;
-      }
+        .calendar-container .btn-link:hover {
+            background-color: #5755fc;
+        }
 
-      .calendar-container .btn-link {
-        font-size: 16px;
-        padding: 10px 20px;
-      }
+        .calendar-container .btn-refresh:hover {
+            background-color: #4b49a0;
+        }
 
-      iframe {
-        height: 600px;
-      }
-    }
-  </style>
+        iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .calendar-container {
+                padding: 20px;
+            }
+
+            .calendar-container h1 {
+                font-size: 26px;
+            }
+
+            .calendar-container .btn-link,
+            .calendar-container .btn-refresh {
+                font-size: 8px;
+                padding: 10px;
+            }
+
+            iframe {
+                height: 600px;
+            }
+
+           
+        }
+    </style>
 </head>
+
 <body>
+    <div class="calendar-container">
+        <h1>ตารางจองห้องประชุมกองควบคุมอาหารและยาสัตว์</h1>
+        <p>ติดต่อ สอบถาม แจ้งปัญหา การจอง/ยกเลิกห้องประชุม แจ้งศูนย์สารสนเทศด้านอาหารสัตว์และวัตถุอันตราย</p>
+        <p>โทร. 021590406-7 ต่อ 111 อีเมล afvc.nsw@dld.go.th</p>
 
-  <div class="calendar-container">
-    <h1>ตารางจองห้องประชุมกองควบคุมอาหารและยาสัตว์</h1>
-    <p>ติดต่อ สอบถาม แจ้งปัญหา การจอง/ยกเลิกห้องประชุม แจ้งศูนย์สารสนเทศด้านอาหารสัตว์และวัตถุอันตราย<p>
-    <p>โทร. 021590406-7 ต่อ 111 อีเมล afvc.nsw@dld.go.th</p>
+        <div class="btn-bar">
+            <a class="btn-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfInsBPRN87bYCaefpEbd13GPaMGxUtKeCrn1lth7wqdzv-ow/viewform?usp=dialog"
+                target="_blank">
+                📝 จองห้องประชุม / ยกเลิกจอง
+            </a>
 
-    <a class="btn-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfInsBPRN87bYCaefpEbd13GPaMGxUtKeCrn1lth7wqdzv-ow/viewform?usp=dialog" target="_blank">
-      📝 จองห้องประชุม / ยกเลิกจอง
-    </a>
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FBangkok&showTz=0&src=ZTI5YTU1NmZhNzcwZGU1NWRiZDVhZjQwNDNhNjg4MDNlOTAxZGNjZmYxYzViMTNkMmZjMjUzZWYyOTI4Y2U3N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-  </div>
+            <a class="btn-refresh" onclick="window.location.reload()" href="#">
+                🔄 รีเฟรช
+            </a>
+        </div>
 
+        <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FBangkok&showTz=0&src=ZTI5YTU1NmZhNzcwZGU1NWRiZDVhZjQwNDNhNjg4MDNlOTAxZGNjZmYxYzViMTNkMmZjMjUzZWYyOTI4Y2U3N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
+            style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
 </body>
+
 </html>
